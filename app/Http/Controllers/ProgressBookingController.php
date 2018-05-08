@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Booking;
-use App\User;
+use App\ProgressBooking;
 use Illuminate\Http\Request;
 
-class BookingController extends Controller
+class ProgressBookingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,13 +14,7 @@ class BookingController extends Controller
      */
     public function index()
     {
-       // return Booking::all();
-
-        $bookings = Booking::find(1);
-
-        return $bookings;
-
-
+        //
     }
 
     /**
@@ -48,37 +41,21 @@ class BookingController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Booking  $booking
+     * @param  \App\ProgressBooking  $progressBooking
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(ProgressBooking $progressBooking)
     {
-        $bookings = Booking::with('progressbooking','user')->find($id);
-
-        return view('bookings.showbooking',compact('bookings'));
-
-      //  return $bookings;
-
-     /*   foreach($bookings as $booking){
-            echo    "<p>Nome : ".$user->nome.
-                        "<br /> Cognome : ".$user->cognome.
-                            "<br /> Id Prenotazione: ".$booking->id_prenotazione.
-                            "<br /> Id Sede: ".$booking->id_sede.
-                            "<br /> Id Ufficio: ".$booking->id_ufficio.
-                            "<br /> Stato prenotazione  : ".$progress->stato_prenotazione.
-                    "</p>";
-            ;
-        }
-     */
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Booking  $booking
+     * @param  \App\ProgressBooking  $progressBooking
      * @return \Illuminate\Http\Response
      */
-    public function edit(Booking $booking)
+    public function edit(ProgressBooking $progressBooking)
     {
         //
     }
@@ -87,10 +64,10 @@ class BookingController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Booking  $booking
+     * @param  \App\ProgressBooking  $progressBooking
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Booking $booking)
+    public function update(Request $request, ProgressBooking $progressBooking)
     {
         //
     }
@@ -98,10 +75,10 @@ class BookingController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Booking  $booking
+     * @param  \App\ProgressBooking  $progressBooking
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Booking $booking)
+    public function destroy(ProgressBooking $progressBooking)
     {
         //
     }
