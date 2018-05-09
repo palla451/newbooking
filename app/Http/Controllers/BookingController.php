@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Booking;
+use App\Headquarter;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BookingController extends Controller
 {
@@ -31,7 +33,14 @@ class BookingController extends Controller
      */
     public function create()
     {
-        //
+        $id = Auth::id();
+
+        $user = User::findOrFail($id);
+
+        $sedi = Headquarter::all();
+
+
+        return view('bookings.newbooking',compact('user','sedi'));
     }
 
     /**
@@ -40,9 +49,38 @@ class BookingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Booking $booking, Request $request)
     {
-        //
+        $user = User::find(Auth::id());
+
+
+        $booking->id_utente = Auth::id();
+        $booking->id_sede = 1;
+        $booking->id_ufficio = 1;
+        $booking->inizio_giorno_prenotazione = now();
+        $booking->inizio_ora_prenotazione = now();
+        $booking->fine_giorno_prenotazione = now();
+        $booking->fine_ora_prenotazione = now();
+        $booking->n_postazioni = $request->input('n_postazioni');
+        $booking->costo = $request->input('costo');
+        $booking->aliquota = $request->input('aliquota');
+        $booking->iva = $request->input('iva');
+
+        $booking->creato_da = $user->nome.' '.$user->cognome;
+        $booking->modificato_da = 'nessuno';
+
+        $booking->id_stato_prenotazione = 1;
+        $booking->id_metodo_pagamento = 1;
+        $booking->nota_esterna = $request->input('nota_esterna');
+        $booking->nota_interna = 'niente da segnalare';
+
+        return $booking;
+
+        $booking->save();
+
+        return redirect('home');
+
+
     }
 
     /**
@@ -53,23 +91,10 @@ class BookingController extends Controller
      */
     public function show($id)
     {
-        $bookings = Booking::with('progressbooking','user')->find($id);
+        $bookings = Booking::with('progressbooking','user','headquarter')->find($id);
 
         return view('bookings.showbooking',compact('bookings'));
 
-      //  return $bookings;
-
-     /*   foreach($bookings as $booking){
-            echo    "<p>Nome : ".$user->nome.
-                        "<br /> Cognome : ".$user->cognome.
-                            "<br /> Id Prenotazione: ".$booking->id_prenotazione.
-                            "<br /> Id Sede: ".$booking->id_sede.
-                            "<br /> Id Ufficio: ".$booking->id_ufficio.
-                            "<br /> Stato prenotazione  : ".$progress->stato_prenotazione.
-                    "</p>";
-            ;
-        }
-     */
     }
 
     /**

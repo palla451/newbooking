@@ -30,6 +30,10 @@
         <fieldset>Fine ora Prenotazione : {{$bookings->fine_ora_prenotazione}}</fieldset>
     </div>
 
+    <div class="col-md-12">
+        <fieldset>Sede : {{$bookings->headquarter}}</fieldset>
+    </div>
+
 
 
 

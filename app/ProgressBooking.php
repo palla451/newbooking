@@ -12,8 +12,9 @@ class ProgressBooking extends Model
         'stato_prenotazione'
     ];
 
-    public function booking(){
-
+    /* Relazione uno a uno Prenotazione Stato avanzamento prenotazione  */
+    public function booking()
+    {
         return $this->hasOne('App\Booking','id_stato_prenotazione');
     }
 }

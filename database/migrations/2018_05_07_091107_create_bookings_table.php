@@ -22,6 +22,7 @@ class CreateBookingsTable extends Migration
             $table->time('inizio_ora_prenotazione');
             $table->date('fine_giorno_prenotazione');
             $table->time('fine_ora_prenotazione');
+            $table->unsignedInteger('n_postazioni');
             $table->unsignedInteger('costo');
             $table->unsignedInteger('aliquota');
             $table->unsignedInteger('iva');
@@ -29,8 +30,8 @@ class CreateBookingsTable extends Migration
             $table->string('modificato_da');
             $table->unsignedInteger('id_stato_prenotazione')->default(1);
             $table->unsignedInteger('id_metodo_pagamento')->default(null);
-            $table->text('nota_interna');
-            $table->text('nota_esterna');
+            $table->string('nota_interna');
+            $table->string('nota_esterna');
             $table->timestamps();
         });
     }

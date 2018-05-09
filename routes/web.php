@@ -21,4 +21,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('users','UserController');
 
-Route::resource('booking','BookingController')->middleware('auth');
+Route::resource('booking','BookingController');
+
+Route::resource('test','TestController');

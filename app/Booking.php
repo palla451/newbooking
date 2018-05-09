@@ -25,13 +25,22 @@ class Booking extends Model
         'nota_esterna'
     ];
 
+    /* Relazione inversa uno a molti Utente Prenotazione */
     public function user()
     {
         return $this->belongsTo('App\User','id_utente');
     }
+
+    /* Relazione uno a uno Prenotazione Stato avanzamento prenotazione  */
     public function progressbooking(){
 
         return $this->hasOne('App\ProgressBooking','id_stato_prenotazione');
+    }
+
+    /* Relazione uno a uno Prenotazione Sede  */
+    public function headquarter()
+    {
+        return $this->hasOne('App\Headquarter','id_sede');
     }
 
 }
