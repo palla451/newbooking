@@ -19,9 +19,10 @@ class CreateBookingsTable extends Migration
             $table->unsignedInteger('id_sede');
             $table->unsignedInteger('id_ufficio');
             $table->date('inizio_giorno_prenotazione');
-            $table->time('inizio_ora_prenotazione');
-            $table->date('fine_giorno_prenotazione');
-            $table->time('fine_ora_prenotazione');
+            $table->unsignedInteger('num_ore_prenotate');
+            $table->time('inizio_ora_prenotazione')->nullable(true);
+            $table->date('fine_giorno_prenotazione')->nullable(true);
+            $table->time('fine_ora_prenotazione')->nullable(true);
             $table->unsignedInteger('n_postazioni');
             $table->unsignedInteger('costo');
             $table->unsignedInteger('aliquota');
@@ -29,7 +30,7 @@ class CreateBookingsTable extends Migration
             $table->string('creato_da');
             $table->string('modificato_da');
             $table->unsignedInteger('id_stato_prenotazione')->default(1);
-            $table->unsignedInteger('id_metodo_pagamento')->default(null);
+            $table->unsignedInteger('id_metodo_pagamento')->nullable(false);
             $table->string('nota_interna');
             $table->string('nota_esterna');
             $table->timestamps();

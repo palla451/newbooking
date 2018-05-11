@@ -22,5 +22,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('users','UserController');
 
 Route::resource('booking','BookingController');
+Route::get('myform/ajax/{id}',array('as'=>'myform.ajax','uses'=>'BookingController@myformAjax'));
 
 Route::resource('test','TestController');

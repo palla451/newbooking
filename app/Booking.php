@@ -43,4 +43,11 @@ class Booking extends Model
         return $this->hasOne('App\Headquarter','id_sede');
     }
 
+    /* Relazione uno a uno Prenotazione Ora */
+    /*
+    public function hour()
+    {
+        return $this->hasOne('App\Hour','num_ore_prenotate');
+    }
+    */
 }

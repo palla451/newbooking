@@ -13,4 +13,10 @@ class Headquarter extends Model
     {
         return $this->hasOne('App\Booking','id_sede');
     }
+
+    /* Relazione uno a molti Ufficio Sede  */
+    public function offices()
+    {
+        return $this->hasMany('App\Office','id_sede');
+    }
 }

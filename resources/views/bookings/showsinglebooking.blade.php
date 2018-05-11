@@ -15,15 +15,15 @@
     </div>
 
     <div class="col-md-12">
-        <fieldset>Inizio giorno Prenotazione : {{$bookings->inizio_giorno_prenotazione}}</fieldset>
+        <fieldset>Giorno : {{$bookings->inizio_giorno_prenotazione}}</fieldset>
     </div>
 
     <div class="col-md-12">
-        <fieldset>Inizio ora Prenotazione : {{$bookings->inizio_ora_prenotazione}}</fieldset>
+        <fieldset>Ore prenotate: {{$bookings->num_ore_prenotate}}</fieldset>
     </div>
 
     <div class="col-md-12">
-        <fieldset>Fine giorno Prenotazione : {{$bookings->fine_giorno_prenotazione}}</fieldset>
+        <fieldset>Dalle : {{$bookings->inizio_ora_prenotazione}}</fieldset>
     </div>
 
     <div class="col-md-12">
@@ -31,17 +31,11 @@
     </div>
 
     <div class="col-md-12">
-        <fieldset>Sede : {{$bookings->headquarter}}</fieldset>
+        <fieldset>Sede : {{$bookings->headquarter->nome_sede}}</fieldset>
     </div>
 
-
-
-
-
-
-
-
-
-
+    <div class="col-md-12">
+        <fieldset>Sede : {{$bookings->progressbooking->stato_prenotazione}}</fieldset>
+    </div>
 
     @endsection
