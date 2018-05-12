@@ -20,10 +20,6 @@ class CreateOfficesTable extends Migration
             $table->unsignedInteger('n_max_post');
             $table->unsignedInteger('peso_utilizzo');
             $table->unsignedInteger('id_sede');
-            $table->foreign('id_sede')
-                ->references('id_sede')
-                ->on('headquarters')
-                ->onDelete('cascade');
             $table->unsignedInteger('id_allestimento');
             $table->unsignedInteger('tempo_riallestimento');
         });

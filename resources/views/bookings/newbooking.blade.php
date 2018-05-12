@@ -24,7 +24,7 @@
 
         <div class="form-group">
             <div class="col-sm-10">
-            <label for="id_sede_select">Sede</label>
+            <label for="id_sede_select">sede</label>
                 <select class="form-control" id="id_sede_select" name="id_sede">
                     <option>---- sede ----</option>
                     @foreach($sedi as $sede)
@@ -36,7 +36,7 @@
 
     <div class="form-group">
         <div class="col-sm-10">
-            <label for="id_ufficio_select">Ufficio</label>
+            <label for="id_ufficio_select">ufficio</label>
             <select class="form-control" id="id_ufficio_select" name="id_ufficio">
                 <option>---- ufficio ----</option>
             </select>
@@ -55,6 +55,7 @@
         <div class="col-sm-10">
             <label for="num_ore_prenotate">numero di ore</label>
             <select class="form-control" id="num_ore_prenotate" name="num_ore_prenotate">
+                <option>---- ore ----</option>
                 @foreach($ore as $ora)
                     <option value="{{$ora->id_ora}}">{{ $ora->num_ore }}</option>
                 @endforeach
@@ -63,9 +64,14 @@
     </div>
 
     <div class="form-group">
-        <label for="inizio_ora_prenotazione" class="col-sm-2 control-label">a partire dalle</label>
         <div class="col-sm-10">
-            <input type="date" class="form-control" name="inizio_ora_prenotazione" id="inizio_ora_prenotazione" placeholder="inizio_ora_prenotazione">
+            <label for="inizio_ora_prenotazione">a partire dalle ore</label>
+            <select class="form-control" id="inizio_ora_prenotazione" name="inizio_ora_prenotazione">
+                <option>---- orario ----</option>
+                @foreach($ora_prenotazione as $prenotazione_ora)
+                    <option value="{{$prenotazione_ora->ora_prenotazione}}">{{ $prenotazione_ora->ora_prenotazione }}</option>
+                @endforeach
+            </select>
         </div>
     </div>
 
@@ -84,13 +90,13 @@
     </div>
 
     <div class="form-group">
-        <label for="n_postazioni" class="col-sm-2 control-label">n_postazioni</label>
+        <label for="n_postazioni" class="col-sm-2 control-label">n. postazioni</label>
         <div class="col-sm-10">
-            <input type="text" name="n_postazioni" class="form-control" id="n_postazioni" placeholder="n_postazioni">
+            <input type="text" name="n_postazioni" class="form-control" id="n_postazioni" placeholder="....">
         </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" style="display: none">
         <label for="creato_da" class="col-sm-2 control-label">creato_da</label>
         <div class="col-sm-10">
             <input type="text" name="creato_da" class="form-control" id="creato_da" placeholder="creato_da" value="{{$utente->nome}} {{$utente->cognome}}">
@@ -119,7 +125,7 @@
     </div>
 
     <div class="form-group">
-        <label for="nota_esterna" class="col-sm-2 control-label">nota_esterna</label>
+        <label for="nota_esterna" class="col-sm-2 control-label">note</label>
         <div class="col-sm-10">
           <textarea class="form-control" name="nota_esterna" id="nota_esterna" placeholder="nota_esterna"></textarea>
         </div>
@@ -131,7 +137,6 @@
         </div>
     </div>
 </form>
-
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

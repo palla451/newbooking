@@ -14,7 +14,8 @@ class ProgressBookingController extends Controller
      */
     public function index()
     {
-        //
+        $progress = ProgressBooking::where('id_stato_prenotazione','=','1')->get();
+        echo $progress;
     }
 
     /**

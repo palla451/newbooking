@@ -14,7 +14,8 @@ class HeadquarterController extends Controller
      */
     public function index()
     {
-        //
+        $sedi = Headquarter::with('offices')->get();
+        return $sedi;
     }
 
     /**

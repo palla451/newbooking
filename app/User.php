@@ -29,10 +29,8 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-
-    /* Relazione uno a molti Utente Prenotazione */
     public function bookings()
     {
-        return $this->hasMany('App\Booking','id_prenotazione');
+        return $this->hasMany('App\Booking','id_utente','id_utente');
     }
 }

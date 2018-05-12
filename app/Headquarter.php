@@ -11,12 +11,12 @@ class Headquarter extends Model
     /* Relazione inversa uno a uno Prenotazione Sede  */
     public function booking()
     {
-        return $this->hasOne('App\Booking','id_sede');
+        return $this->belongsTo('App\Booking','id_sede','id_prenotazione');
     }
 
     /* Relazione uno a molti Ufficio Sede  */
     public function offices()
     {
-        return $this->hasMany('App\Office','id_sede');
+        return $this->hasMany('App\Office','id_sede','id_sede');
     }
 }
