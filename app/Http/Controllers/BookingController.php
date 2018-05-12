@@ -21,9 +21,9 @@ class BookingController extends Controller
      */
     public function index()
     {
-           // $id=Auth::id();
-          $bookings = Booking::with('user','headquarter','office','progressbooking')
-           //   ->where('id_utente','=','1')
+        $id=Auth::id();
+          $bookings = Booking::with('user','headquarter','office','progressbooking','hourprenotation','hour')
+                ->where('id_utente','=',$id)
               ->get();
 
             return $bookings;
