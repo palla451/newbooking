@@ -14,7 +14,7 @@ class CreateHourPrenotationsTable extends Migration
     public function up()
     {
         Schema::create('hour_prenotations', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id_ora_prenotazione');
             $table->time('ora_prenotazione');
         });
     }
