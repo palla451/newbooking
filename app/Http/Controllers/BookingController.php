@@ -24,11 +24,10 @@ class BookingController extends Controller
         $id=Auth::id();
           $bookings = Booking::with('user','headquarter','office','progressbooking','hourprenotation','hour')
                 ->where('id_utente','=',$id)
-              ->get();
+                    ->get();
 
-            return $bookings;
-
-     //   return view('bookings.show_all_user_booking',compact('bookings'));
+        //    return $bookings;
+        return view('bookings.show_all_user_booking',compact('bookings'));
     }
 
 

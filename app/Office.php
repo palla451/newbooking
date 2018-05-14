@@ -19,4 +19,10 @@ class Office extends Model
     {
         return $this->hasOne('App\Booking','id_ufficio','id_ufficio');
     }
+
+    /* Relazione uno a molti  tra Ufficio e Allestimenti */
+    public function productions()
+    {
+        return $this->belongsToMany('App\Production','production_office','id_ufficio','id_allestimento');
+    }
 }

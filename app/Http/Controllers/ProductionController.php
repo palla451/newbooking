@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Office;
+use App\Production;
 use Illuminate\Http\Request;
 
-class OfficeController extends Controller
+class ProductionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class OfficeController extends Controller
      */
     public function index()
     {
-        $ufficio = Office::with('productions')->find(1);
+        $allestimenti = Production::with('offices')->get();
 
-        return $ufficio;
+        return $allestimenti;
     }
 
     /**
@@ -43,10 +43,10 @@ class OfficeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Office  $office
+     * @param  \App\Production  $production
      * @return \Illuminate\Http\Response
      */
-    public function show(Office $office)
+    public function show(Production $production)
     {
         //
     }
@@ -54,10 +54,10 @@ class OfficeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Office  $office
+     * @param  \App\Production  $production
      * @return \Illuminate\Http\Response
      */
-    public function edit(Office $office)
+    public function edit(Production $production)
     {
         //
     }
@@ -66,10 +66,10 @@ class OfficeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Office  $office
+     * @param  \App\Production  $production
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Office $office)
+    public function update(Request $request, Production $production)
     {
         //
     }
@@ -77,10 +77,10 @@ class OfficeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Office  $office
+     * @param  \App\Production  $production
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Office $office)
+    public function destroy(Production $production)
     {
         //
     }

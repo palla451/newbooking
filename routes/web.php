@@ -27,3 +27,7 @@ Route::get('myform/ajax/{id}',array('as'=>'myform.ajax','uses'=>'BookingControll
 Route::resource('progressbooking','ProgressBookingController');
 
 Route::resource('headquarter','HeadquarterController');
+
+Route::resource('production','ProductionController');
+
+Route::resource('office','OfficeController');

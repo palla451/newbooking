@@ -11,10 +11,10 @@
                 <fieldset>Email : {{$booking->user->email}}</fieldset>
                 <fieldset>Giorno : {{$booking->inizio_giorno_prenotazione}}</fieldset>
                 <fieldset>Ore prenotate: {{$booking->num_ore_prenotate}}</fieldset>
-                <fieldset>Dalle : {{$booking->inizio_ora_prenotazione}}</fieldset>
-                <fieldset>Fine ora Prenotazione : {{$booking->fine_ora_prenotazione}}</fieldset>
+                <fieldset>Inizio ora prenotazione : {{$booking->inizio_ora_prenotazione}}</fieldset>
+                <fieldset>Fine ora prenotazione : {{$booking->fine_ora_prenotazione}}</fieldset>
                 <fieldset>Sede : {{$booking->headquarter->nome_sede}}</fieldset>
-                <fieldset>Sede : {{$booking->progressbooking->stato_prenotazione}}</fieldset>
+                <fieldset>Ufficio : {{$booking->office->nome_ufficio}}</fieldset>
             </div>
             @endforeach
         </div>
